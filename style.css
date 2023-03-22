@@ -10,10 +10,17 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     min-width: 200px;
-    max-width: 300px;
+    max-width: 215px;
     margin: auto;
     margin-top: 15%;
     background-color: rgb(184, 184, 184);
+}
+
+@media screen and (max-width: 350px) {
+    #game_window {
+        margin-top: 10px;
+        margin-right: auto;
+    }
 
 }
 
@@ -72,7 +79,7 @@ body {
 
 #mines_left {
     position: absolute;
-    margin-top: 9px;
+    margin-top: 7px;
     margin-left: 10px;
 }
 
@@ -83,13 +90,12 @@ body {
 }
 
 #face {
-    border: solid gray 2px;
     text-align: center;
 }
 
 #timer {
     float: right;
-    margin-top: -30px;
+    margin-top: -28px;
     margin-right: 10px;
 }
 
@@ -100,12 +106,28 @@ body {
     padding: 2px;
 }
 
+#grid {
+    border-top: solid rgb(117, 117, 117) 2px;
+    border-left: solid rgb(117, 117, 117) 2px;
+    border-bottom: solid white 2px;
+    border-right: solid white 2px;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.field_button {
+    border: 0px;
+    padding: 10px;
+    width: 100%;
+    color: transparent;
+}
+
 footer {
     position: fixed;
     bottom: -2;
     width: 100%;
     background-color: rgb(0, 2, 110);
-    /* ojla matjaz tuki */
     background-image: url('img/taskbar_middle.jpg');
     max-height: 30px;
 }
