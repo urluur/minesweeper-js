@@ -5,11 +5,66 @@ body {
     background-size: cover;
 }
 
+#game_window {
+    border: solid blue 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 30%;
+    background-color: whitesmoke;
+}
+
+#window_top {
+    background-image: url('img/taskbar_middle.jpg');
+    color: rgb(235, 232, 218);
+    padding: 5px;
+    height: 20px;
+}
+
+#icon {
+    max-width: 20px;
+    margin-right: 5px;
+    margin-top: 1px;
+    float: left;
+}
+
+#title {
+    margin-top: 2px;
+}
+
+#window_menu > button {
+    border: none;
+    background-color: transparent;
+}
+
+#cross {
+    height: 25px;
+    margin-top: -3px;
+    margin-right: -3px;
+    float: right;
+}
+
+#game_field {
+    background-color: rgb(192, 192, 192);
+}
+
+table {
+    text-align: center;
+    width: 100%
+}
+
+#white_margin {
+    border-top: solid white 5px;
+    border-left: solid white 4px;
+}
+
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     background-image: url('img/taskbar_middle.jpg');
+    max-height: 30px;
 }
 
 #taskbar_right {
