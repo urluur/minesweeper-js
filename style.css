@@ -1,0 +1,25 @@
+body {
+    background: url("img/bliss.jpg");
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-image: url('img/taskbar_middle.jpg');
+}
+
+#taskbar_right {
+    float: right;
+}
+
+#clock {
+    display: inline;
+    position: relative;
+    left: 80px;
+    top: -8px;
+    color: whitesmoke;
+}
