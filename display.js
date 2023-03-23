@@ -7,6 +7,8 @@ function createGrid(size) {
             let t_data= document.createElement('td')
             let button = document.createElement('button')
             button.classList.add("field_button")
+            // button.classList.add("field_button_flagged")
+            // button.classList.add("field_button_mine")
             t_data.appendChild(button)
             t_row.appendChild(t_data)
         }

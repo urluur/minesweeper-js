@@ -116,11 +116,38 @@ body {
     margin-top: 5px;
 }
 
+/* common for all buttons on the field */
 .field_button {
-    border: 0px;
-    padding: 10px;
+    padding: 9px;
     width: 100%;
-    color: transparent;
+    border-top: solid white 2px;
+    border-left: solid white 2px;
+    border-bottom: solid rgb(117, 117, 117) 2px;
+    border-right: solid rgb(117, 117, 117) 2px;
+    background-color: rgb(192, 192, 192);
+}
+
+td {
+    padding: 0px;
+}
+
+
+.field_button_mine {
+    background-image: url("/img/mine.png");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 10px;
+    border: none;
+    border-bottom: solid rgb(117, 117, 117) 01px;
+    border-right: solid rgb(117, 117, 117) 1px;
+
+}
+
+.field_button_flagged {
+    background-image: url("/img/flag.png");
+    background-size: 20px;
+    background-position: center;
 }
 
 footer {
