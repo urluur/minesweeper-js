@@ -1,5 +1,5 @@
 function createGrid(size) {
-    var table = document.getElementById('grid')
+    let table = document.getElementById('grid')
     for (let i = 0; i < size; i++) {
         let t_row= document.createElement('tr')
 

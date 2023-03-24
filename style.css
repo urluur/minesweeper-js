@@ -6,14 +6,21 @@ body {
 }
 
 #game_window {
+    /* visibility: hidden; */
     border: solid blue 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     min-width: 200px;
     max-width: 215px;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     background-color: rgb(184, 184, 184);
+}
+
+#window_menu > button {
+    padding-right: 1px;
+    color: black;
+    font-family: sans-serif;
 }
 
 @media screen and (max-width: 350px) {
@@ -25,7 +32,7 @@ body {
 }
 
 #window_top {
-    background-image: url('img/taskbar_middle.jpg');
+    background-image: url('img/taskbar_middle.png');
     color: rgb(235, 232, 218);
     padding: 5px;
     height: 20px;
@@ -38,8 +45,8 @@ body {
     float: left;
 }
 
-#title {
-    margin-top: 2px;
+#mine_title {
+    margin-top: 1px;
 }
 
 #window_menu {
@@ -155,7 +162,12 @@ footer {
     bottom: -2;
     width: 100%;
     background-color: rgb(0, 2, 110);
-    background-image: url('img/taskbar_middle.jpg');
+    background-image: url('img/taskbar_middle.png');
+    background-position: center;
+    background-size: 38px;
+    max-height: 30px;
+}
+footer > img, #taskbar_right > img {
     max-height: 30px;
 }
 
@@ -166,7 +178,7 @@ footer {
 #clock {
     display: inline;
     position: relative;
-    left: 80px;
-    top: -8px;
+    left: 110px;
+    top: -10px;
     color: whitesmoke;
 }
