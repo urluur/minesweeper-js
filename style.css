@@ -17,7 +17,7 @@ body {
     background-color: rgb(184, 184, 184);
 }
 
-#window_menu > button {
+#window_menu>button {
     padding-right: 1px;
     color: black;
     font-family: sans-serif;
@@ -144,10 +144,11 @@ td {
     background-size: 15px;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 10px;
+    padding-top: 10.5px;
+    padding-bottom: 10.5px;
     border: none;
-    border-bottom: solid rgb(117, 117, 117) 01px;
-    border-right: solid rgb(117, 117, 117) 1px;
+    border-left: solid rgb(117, 117, 117) 1px;
+    border-top: solid rgb(117, 117, 117) 1px;
 
 }
 
@@ -167,7 +168,9 @@ footer {
     background-size: 38px;
     max-height: 30px;
 }
-footer > img, #taskbar_right > img {
+
+footer>img,
+#taskbar_right>img {
     max-height: 30px;
 }
 
