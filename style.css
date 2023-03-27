@@ -186,6 +186,10 @@ footer>img,
     color: whitesmoke;
 }
 
-footer > a > img {
+footer>a>img {
     max-height: 30px;
+}
+
+.hidden {
+    display: none;
 }

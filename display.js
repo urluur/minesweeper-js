@@ -1,7 +1,7 @@
 let difficulty = {
-    "easy": [9, 9, 10],
-    "intermediate": [16, 16, 40],
-    "expert": [16, 30, 99]
+    easy: [9, 9, 10],
+    intermediate: [16, 16, 40],
+    expert: [16, 30, 99]
 }
 
 function createGrid(dif) {
@@ -25,3 +25,15 @@ function createGrid(dif) {
 }
 
 createGrid(difficulty.easy)
+
+function closeWindow() {
+    let window = document.getElementById("game_window")
+    window.classList.toggle("hidden")
+
+    // source: https://www.w3schools.com/jsref/prop_img_src.asp
+    if (window.classList.contains("hidden")) {
+        document.getElementById("start").src="img/taskbar_left_inactive.png";
+    } else {
+        document.getElementById("start").src="img/taskbar_left_active.png";
+    }
+}

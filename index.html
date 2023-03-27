@@ -4,67 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minesweeper</title>
+    <title>Windows XP</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div id="game_window">
-
-        <div id="window_top">
-            <img id="icon" src="favicon.ico">
-            <a href="inactive.html">
-                <img id="cross" src="img/window_close.jpg">
-            </a>
-            <div id="mine_title">
-                Minesweeper
-            </div>
-        </div>
-
-        <div id="window_menu">
-            <button><u>G</u>ame</button>
-            <button style="cursor: help;"><u>H</u>elp</button>
-        </div>
-
-        <div id="white_margin">
-            <div id="game_panel">
-                <div id="game_menu">
-                    <div id="mines_left">
-                        <img src="img/digits/digit0.png">
-                        <img src="img/digits/digit1.png">
-                        <img src="img/digits/digit0.png">
-                    </div>
-                    <div id="face">
-                        <button>
-                            <img src="img/ok.png">
-                        </button>
-                    </div>
-                    <div id="timer">
-                        <img src="img/digits/digit0.png">
-                        <img src="img/digits/digit0.png">
-                        <img src="img/digits/digit0.png">
-                    </div>
-                </div>
-
-                <div id="field">
-                    <table id="grid"></table>
-                </div>
-                <script src="display.js"></script>
-            </div>
-        </div>
-
-    </div>
-
     <footer>
-        <a href="inactive.html">
-            <img src="img/taskbar_left_active.png">
+        <a href="active.html">
+            <img src="img/taskbar_left_inactive.png">
         </a>
         <div id="taskbar_right">
             <p id="clock">04:20</p>
             <img src="img/taskbar_right.png">
         </div>
     </footer>
+    <script>
+        // source: https://stackoverflow.com/questions/9419263/how-to-play-audio
+        var audio = new Audio('other/startup.mp3');
+        audio.play();
+    </script>
 </body>
 
 </html>
