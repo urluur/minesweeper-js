@@ -11,10 +11,10 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     min-width: 200px;
-    max-width: 215px;
     margin: auto;
     margin-top: 10%;
     background-color: rgb(184, 184, 184);
+    width: fit-content;
 }
 
 #window_menu>button {
@@ -184,4 +184,8 @@ footer>img,
     left: 110px;
     top: -10px;
     color: whitesmoke;
+}
+
+footer > a > img {
+    max-height: 30px;
 }
