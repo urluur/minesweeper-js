@@ -1,11 +1,10 @@
 class Cell {
     constructor() {
-        this.isBomb = false;
+        this.isMine = false;
         this.isClicked = false;
         this.isFlagged = false;
-        this.neighborBombs = 0;
+        this.neighbormines = 0;
     }
-    
 }
 
 function createGrid() {
@@ -18,35 +17,35 @@ function createGrid() {
     }
 }
 
-function placeBombs() {
-    // Place bombs
-    let bombsPlaced = 0;
-    while (bombsPlaced < difficulty[2]) {
+function placeMines() {
+    // Place mines
+    let minesPlaced = 0;
+    while (minesPlaced < difficulty[2]) {
         let x = Math.floor(Math.random() * difficulty[0]);
         let y = Math.floor(Math.random() * difficulty[1]);
-        if (!grid[x][y].isBomb) {
-            grid[x][y].isBomb = true;
-            bombsPlaced++;
+        if (!grid[x][y].isMine) {
+            grid[x][y].isMine = true;
+            minesPlaced++;
         }
     }
 }
 
-function countNeighborBombs() {
-    // Count neighbor bombs
+function countNeighborMines() {
+    // Count neighbor mines
     for (let i = 0; i < difficulty[0]; i++) {
         for (let j = 0; j < difficulty[1]; j++) {
-            if (!grid[i][j].isBomb) {
-                let neighborBombs = 0;
+            if (!grid[i][j].isMine) {
+                let neighborMines = 0;
                 for (let k = -1; k <= 1; k++) {
                     for (let l = -1; l <= 1; l++) {
                         if (i + k >= 0 && i + k < difficulty[0] && j + l >= 0 && j + l < difficulty[1]) {
-                            if (grid[i + k][j + l].isBomb) {
-                                neighborBombs++;
+                            if (grid[i + k][j + l].isMine) {
+                                neighborMines++;
                             }
                         }
                     }
                 }
-                grid[i][j].neighborBombs = neighborBombs;
+                grid[i][j].neighborMines = neighborMines;
             }
         }
     }
@@ -55,7 +54,7 @@ function countNeighborBombs() {
 function clickCell(x, y) {
     if (!grid[x][y].isClicked) {
         grid[x][y].isClicked = true;
-        if (grid[x][y].neighborBombs == 0) {
+        if (grid[x][y].neighborMines == 0) {
             for (let k = -1; k <= 1; k++) {
                 for (let l = -1; l <= 1; l++) {
                     if (x + k >= 0 && x + k < difficulty[0] && y + l >= 0 && y + l < difficulty[1]) {
@@ -84,8 +83,8 @@ function flagButton(x, y) {
 
 function startGame() {
     createGrid();
-    placeBombs();
-    countNeighborBombs();
+    placeMines();
+    countNeighborMines();
     displayGrid();
 }
 

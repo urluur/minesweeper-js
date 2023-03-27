@@ -16,7 +16,7 @@ function displayGrid() {
         for (let j = 0; j < difficulty[1]; j++) {
             let t_data = document.createElement('td')
             let button = document.createElement('button')
-            
+
             button.classList.add("field_button")
 
             button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
@@ -25,12 +25,12 @@ function displayGrid() {
             if (grid[i][j].isFlagged) {
                 button.classList.add("field_button_flagged")
             }
-            if (grid[i][j].isBomb && grid[i][j].isClicked) {
+            if (grid[i][j].isMine && grid[i][j].isClicked) {
                 button.classList.add("field_button_mine")
-                // reveal all bombs
+                // reveal all mines
                 for (let k = 0; k < difficulty[0]; k++) {
                     for (let l = 0; l < difficulty[1]; l++) {
-                        if (grid[k][l].isBomb) {
+                        if (grid[k][l].isMine) {
                             grid[k][l].isClicked = true
                         }
                     }
@@ -38,20 +38,20 @@ function displayGrid() {
                 // end game
             }
             if (grid[i][j].isClicked) {
-                if (grid[i][j].isBomb) {
+                if (grid[i][j].isMine) {
                     button.classList.add("field_button")
                     button.classList.add("field_button_mine")
                 }
-                else if (grid[i][j].neighborBombs == 0) {
+                else if (grid[i][j].neighborMines == 0) {
                     button.classList.remove("field_button")
                     button.classList.add("field_button_empty")
 
                 }
-                if (grid[i][j].neighborBombs > 0) {
+                if (grid[i][j].neighborMines > 0) {
                     button.classList.remove("field_button")
                     // add picture to button
                     let img = document.createElement('img')
-                    img.src = "img/num_of_neighbors/open" + grid[i][j].neighborBombs + ".png"
+                    img.src = "img/num_of_neighbors/open" + grid[i][j].neighborMines + ".png"
                     button.classList.add("field_button_img")
                     button.appendChild(img)
                 }
@@ -69,9 +69,9 @@ function closeWindow() {
 
     // source: https://www.w3schools.com/jsref/prop_img_src.asp
     if (window.classList.contains("hidden")) {
-        document.getElementById("start").src="img/taskbar_left_inactive.png";
+        document.getElementById("start").src = "img/taskbar_left_inactive.png";
     } else {
-        document.getElementById("start").src="img/taskbar_left_active.png";
+        document.getElementById("start").src = "img/taskbar_left_active.png";
         startGame();
     }
 }

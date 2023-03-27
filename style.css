@@ -6,7 +6,6 @@ body {
 }
 
 #game_window {
-    /* visibility: hidden; */
     border: solid blue 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -148,7 +147,6 @@ td {
     border: none;
     border-left: solid rgb(117, 117, 117) 1px;
     border-top: solid rgb(117, 117, 117) 1px;
-
 }
 
 .field_button_flagged {
@@ -163,6 +161,8 @@ td {
     border-left: solid rgb(117, 117, 117) 1px;
     border-top: solid rgb(117, 117, 117) 1px;
     padding: 10px;
+    padding-top: 11px;
+    padding-left: 11px;
     margin: 0px;
 }
 
@@ -172,7 +172,7 @@ td {
     border: none;
     border-left: solid rgb(117, 117, 117) 1px;
     border-top: solid rgb(117, 117, 117) 1px;
-    padding: 2;
+    padding: 2.5;
     margin: 0;
     background-repeat: no-repeat;
     background-position: center;
