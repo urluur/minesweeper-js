@@ -1,11 +1,3 @@
-let difficulty_presets = {
-    easy: [9, 9, 10],
-    intermediate: [16, 16, 40],
-    expert: [16, 30, 99]
-}
-
-let difficulty = difficulty_presets.easy;
-
 function displayGrid() {
     let table = document.getElementById('grid')
     if (table.hasChildNodes) {
@@ -18,29 +10,22 @@ function displayGrid() {
             let button = document.createElement('button')
 
             button.classList.add("field_button")
-
-            button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
-            button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
+            if (playing) {
+                button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
+                button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
+            }
 
             if (grid[i][j].isFlagged) {
                 button.classList.add("field_button_flagged")
             }
-            if (grid[i][j].isMine && grid[i][j].isClicked) {
-                button.classList.add("field_button_mine")
-                // reveal all mines
-                for (let k = 0; k < difficulty[0]; k++) {
-                    for (let l = 0; l < difficulty[1]; l++) {
-                        if (grid[k][l].isMine) {
-                            grid[k][l].isClicked = true
-                        }
-                    }
-                }
-                // end game
-            }
+
             if (grid[i][j].isClicked) {
                 if (grid[i][j].isMine) {
                     button.classList.add("field_button")
                     button.classList.add("field_button_mine")
+                    if (grid[i][j].isExplodedMine) {
+                        button.setAttribute("style", "background-color: red")
+                    }
                 }
                 else if (grid[i][j].neighborMines == 0) {
                     button.classList.remove("field_button")
@@ -56,6 +41,7 @@ function displayGrid() {
                     button.appendChild(img)
                 }
             }
+
             t_data.appendChild(button)
             t_row.appendChild(t_data)
         }
@@ -64,14 +50,15 @@ function displayGrid() {
 }
 
 function closeWindow() {
+    playing = false
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
 
     // source: https://www.w3schools.com/jsref/prop_img_src.asp
     if (window.classList.contains("hidden")) {
-        document.getElementById("start").src = "img/taskbar_left_inactive.png";
+        document.getElementById("start").src = "img/taskbar_left_inactive.png"
     } else {
-        document.getElementById("start").src = "img/taskbar_left_active.png";
-        startGame();
+        document.getElementById("start").src = "img/taskbar_left_active.png"
+        startGame()
     }
 }

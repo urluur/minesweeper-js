@@ -106,10 +106,26 @@ body {
 }
 
 #face>button {
+    background-color: rgb(192, 192, 192);
     border-left: solid white 2px;
     border-top: solid white 2px;
+    border-bottom: solid rgb(117, 117, 117) 2px;
+    border-right: solid rgb(117, 117, 117) 2px;
     margin: 5px;
     padding: 2px;
+}
+
+#face>button:active {
+    border-left: solid rgb(117, 117, 117) 2px;
+    border-top: solid rgb(117, 117, 117) 2px;
+    border-bottom: solid white 2px;
+    border-right: solid white 2px;
+    margin: 5px;
+    padding: 2px;
+}
+
+#face>button:active>img {
+    transform: translate(0.5px, 0.5px);
 }
 
 #grid {
@@ -133,11 +149,18 @@ body {
     background-color: rgb(192, 192, 192);
 }
 
+.field_button:active {
+    border-top: solid rgb(117, 117, 117) 1px;
+    border-left: solid rgb(117, 117, 117) 1px;
+    border-bottom: solid transparent 3px;
+    border-right: solid transparent 3px;
+}
+
 td {
     padding: 0px;
 }
 
-.field_button_mine {
+.field_button_mine, .field_button_mine:active {
     background-image: url("img/mine.png");
     background-size: 15px;
     background-repeat: no-repeat;
