@@ -83,13 +83,13 @@ body {
     border-right: solid white 2px;
 }
 
-#mines_left {
+#flags_left {
     position: absolute;
     margin-top: 7px;
     margin-left: 10px;
 }
 
-#mines_left>img,
+#flags_left>img,
 #timer>img {
     margin: -2px;
     height: 25px;
