@@ -11,7 +11,7 @@ function displayGrid() {
         for (let j = 0; j < difficulty.cols; j++) {
             let t_data = document.createElement('td')
             let button = document.createElement('button')
-            
+
             button.classList.add("field_button")
             if (playing) {
                 button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
@@ -58,6 +58,7 @@ function closeWindow() {
     playing = false
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
+    difficulty = difficulty_presets.easy
 
     // source: https://www.w3schools.com/jsref/prop_img_src.asp
     if (window.classList.contains("hidden")) {

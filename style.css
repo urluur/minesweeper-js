@@ -11,7 +11,12 @@ body {
     border-top-right-radius: 5px;
     min-width: 200px;
     margin: auto;
-    margin-top: 10%;
+    margin: 0;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
     background-color: rgb(184, 184, 184);
     width: fit-content;
 }
@@ -22,15 +27,8 @@ body {
     font-family: sans-serif;
 }
 
-@media screen and (max-width: 350px) {
-    #game_window, #get_help {
-        margin-top: 10px;
-        margin-right: auto;
-    }
-
-}
-
 #get_help {
+    position: relative;
     border: solid blue 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -46,7 +44,8 @@ body {
     padding: 10px;
 }
 
-#window_top, #help_top {
+#window_top,
+#help_top {
     background-image: url('img/taskbar_middle.png');
     color: rgb(235, 232, 218);
     padding: 5px;
@@ -73,7 +72,8 @@ body {
     background-color: transparent;
 }
 
-#cross, #help_cross {
+#cross,
+#help_cross {
     height: 25px;
     margin-top: -3px;
     margin-right: -3px;
@@ -176,7 +176,8 @@ td {
     padding: 0px;
 }
 
-.field_button_mine, .field_button_mine:active {
+.field_button_mine,
+.field_button_mine:active {
     background-image: url("img/mine.png");
     background-size: 15px;
     background-repeat: no-repeat;
