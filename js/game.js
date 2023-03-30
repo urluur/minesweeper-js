@@ -117,6 +117,7 @@ function clickCell(x, y) {
 
 function clickButton(x, y) {
     if (!grid[x][y].isFlagged) {
+        startTimer()
         clickCell(x, y)
         checkLose(x, y)
         checkWin()
@@ -138,6 +139,7 @@ function checkLose(x, y) {
             }
         }
         playing = false
+        stopTimer()
     }
 }
 
@@ -156,6 +158,7 @@ function checkWin() {
             }
         }
         playing = false
+        stopTimer()
     }
 }
 
@@ -220,6 +223,7 @@ function startGame() {
 }
 
 function resetGame() {
+    resetTimer()
     document.getElementById("smiley").src = "img/ok.png"
     startGame()
 }
