@@ -1,18 +1,23 @@
 function displayGrid() {
     let table = document.getElementById('grid')
+
+    // clear the table
     if (table.hasChildNodes) {
         table.innerHTML = "";
     }
-    for (let i = 0; i < difficulty[0]; i++) {
+
+    for (let i = 0; i < difficulty.rows; i++) {
         let t_row = document.createElement('tr')
-        for (let j = 0; j < difficulty[1]; j++) {
+        for (let j = 0; j < difficulty.cols; j++) {
             let t_data = document.createElement('td')
             let button = document.createElement('button')
-
+            
             button.classList.add("field_button")
             if (playing) {
                 button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
                 button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
+                button.setAttribute("onmousedown", 'smiley("img/wow.png")')
+                button.setAttribute("onmouseup", 'smiley("img/ok.png")')
             }
 
             if (grid[i][j].isFlagged) {
@@ -61,4 +66,8 @@ function closeWindow() {
         document.getElementById("start").src = "img/taskbar_left_active.png"
         startGame()
     }
+}
+
+function smiley(img) {
+    document.getElementById("smiley").src = img
 }

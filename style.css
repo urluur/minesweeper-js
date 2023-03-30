@@ -23,14 +23,30 @@ body {
 }
 
 @media screen and (max-width: 350px) {
-    #game_window {
+    #game_window, #get_help {
         margin-top: 10px;
         margin-right: auto;
     }
 
 }
 
-#window_top {
+#get_help {
+    border: solid blue 2px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    min-width: 200px;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 15px;
+    background-color: rgb(233, 230, 211);
+    width: fit-content;
+}
+
+#instructions {
+    padding: 10px;
+}
+
+#window_top, #help_top {
     background-image: url('img/taskbar_middle.png');
     color: rgb(235, 232, 218);
     padding: 5px;
@@ -57,7 +73,7 @@ body {
     background-color: transparent;
 }
 
-#cross {
+#cross, #help_cross {
     height: 25px;
     margin-top: -3px;
     margin-right: -3px;

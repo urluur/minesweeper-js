@@ -1,7 +1,19 @@
 let difficulty_presets = {
-    easy: [9, 9, 10],
-    intermediate: [16, 16, 40],
-    expert: [16, 30, 99]
+    easy: {
+        rows: 9,
+        cols: 9,
+        mines: 10
+    },
+    intermediate: {
+        rows: 16,
+        cols: 16,
+        mines: 40
+    },
+    expert: {
+        rows: 16,
+        cols: 30,
+        mines: 99
+    }
 }
 
 let difficulty = difficulty_presets.easy;
@@ -10,6 +22,24 @@ let playing = true
 function setDifficulty(diff) {
     difficulty = diff
     resetGame()
+}
+
+function toggleHelp() {
+    document.getElementById("get_help").classList.toggle("hidden")
+}
+
+function switchDifficulty() {
+    switch (difficulty) {
+        case difficulty_presets.easy:
+            setDifficulty(difficulty_presets.intermediate)
+            break
+        case difficulty_presets.intermediate:
+            setDifficulty(difficulty_presets.expert)
+            break
+        default:
+            setDifficulty(difficulty_presets.easy)
+            break
+    }
 }
 
 class Cell {
@@ -23,21 +53,19 @@ class Cell {
 }
 
 function createGrid() {
-    // Create the grid
-    for (let i = 0; i < difficulty[0]; i++) {
+    for (let i = 0; i < difficulty.rows; i++) {
         grid[i] = []
-        for (let j = 0; j < difficulty[1]; j++) {
+        for (let j = 0; j < difficulty.cols; j++) {
             grid[i][j] = new Cell;
         }
     }
 }
 
 function placeMines() {
-    // Place mines
     let minesPlaced = 0
-    while (minesPlaced < difficulty[2]) {
-        let x = Math.floor(Math.random() * difficulty[0])
-        let y = Math.floor(Math.random() * difficulty[1])
+    while (minesPlaced < difficulty.mines) {
+        let x = Math.floor(Math.random() * difficulty.rows)
+        let y = Math.floor(Math.random() * difficulty.cols)
         if (!grid[x][y].isMine) {
             grid[x][y].isMine = true
             minesPlaced++
@@ -46,14 +74,13 @@ function placeMines() {
 }
 
 function countNeighborMines() {
-    // Count neighbor mines
-    for (let i = 0; i < difficulty[0]; i++) {
-        for (let j = 0; j < difficulty[1]; j++) {
+    for (let i = 0; i < difficulty.rows; i++) {
+        for (let j = 0; j < difficulty.cols; j++) {
             if (!grid[i][j].isMine) {
                 let neighborMines = 0
                 for (let k = -1; k <= 1; k++) {
                     for (let l = -1; l <= 1; l++) {
-                        if (i + k >= 0 && i + k < difficulty[0] && j + l >= 0 && j + l < difficulty[1]) {
+                        if (i + k >= 0 && i + k < difficulty.rows && j + l >= 0 && j + l < difficulty.cols) {
                             if (grid[i + k][j + l].isMine) {
                                 neighborMines++
                             }
@@ -73,7 +100,7 @@ function clickCell(x, y) {
         if (grid[x][y].neighborMines == 0) {
             for (let k = -1; k <= 1; k++) {
                 for (let l = -1; l <= 1; l++) {
-                    if (x + k >= 0 && x + k < difficulty[0] && y + l >= 0 && y + l < difficulty[1]) {
+                    if (x + k >= 0 && x + k < difficulty.rows && y + l >= 0 && y + l < difficulty.cols) {
                         if (!grid[x][y].isFlagged) {
                             clickCell(x + k, y + l)
                         }
@@ -98,8 +125,8 @@ function checkLose(x, y) {
         grid[x][y].isExplodedMine = true
         document.getElementById("smiley").src = "img/dead.png"
         // reveal all mines
-        for (let i = 0; i < difficulty[0]; i++) {
-            for (let j = 0; j < difficulty[1]; j++) {
+        for (let i = 0; i < difficulty.rows; i++) {
+            for (let j = 0; j < difficulty.cols; j++) {
                 if (grid[i][j].isMine) {
                     grid[i][j].isFlagged = false
                     grid[i][j].isClicked = true
@@ -116,8 +143,8 @@ function checkWin() {
     }
     if (noTilesLeft()) {
         document.getElementById("smiley").src = "img/win.png"
-        for (let i = 0; i < difficulty[0]; i++) {
-            for (let j = 0; j < difficulty[1]; j++) {
+        for (let i = 0; i < difficulty.rows; i++) {
+            for (let j = 0; j < difficulty.cols; j++) {
                 let el = grid[i][j]
                 if (el.isMine) {
                     el.isFlagged = true
@@ -129,8 +156,8 @@ function checkWin() {
 }
 
 function noTilesLeft() {
-    for (let i = 0; i < difficulty[0]; i++) {
-        for (let j = 0; j < difficulty[1]; j++) {
+    for (let i = 0; i < difficulty.rows; i++) {
+        for (let j = 0; j < difficulty.cols; j++) {
             let el = grid[i][j]
             if (!el.isMine && !el.isClicked) {
                 return false
@@ -149,9 +176,9 @@ function flagButton(x, y) {
 }
 
 function updateFlagCounter() {
-    let mines_unflagged = difficulty[2]
-    for (let i = 0; i < difficulty[0]; i++) {
-        for (let j = 0; j < difficulty[1]; j++) {
+    let mines_unflagged = difficulty.mines
+    for (let i = 0; i < difficulty.rows; i++) {
+        for (let j = 0; j < difficulty.cols; j++) {
             if (grid[i][j].isFlagged) {
                 mines_unflagged--;
             }
