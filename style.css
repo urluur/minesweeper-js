@@ -16,7 +16,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -55%);
     background-color: rgb(184, 184, 184);
     width: fit-content;
 }
