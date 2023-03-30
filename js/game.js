@@ -31,12 +31,12 @@ function toggleHelp() {
 function switchDifficulty() {
     switch (difficulty) {
         case difficulty_presets.easy:
-            if (window.innerWidth > 375) {
+            if (window.innerWidth >= 375) {
                 setDifficulty(difficulty_presets.intermediate)
                 break
             }
         case difficulty_presets.intermediate:
-            if (window.innerWidth > 680) {
+            if (window.innerWidth >= 684) {
                 setDifficulty(difficulty_presets.expert)
                 break
             }
