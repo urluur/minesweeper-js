@@ -1,3 +1,7 @@
+/**
+ * Displays the game grid
+ * Should be called on every change in the grid
+ */
 function displayGrid() {
     let table = document.getElementById('grid')
 
@@ -32,16 +36,16 @@ function displayGrid() {
                         button.setAttribute("style", "background-color: red")
                     }
                 }
-                else if (grid[i][j].neighborMines == 0) {
+                else if (grid[i][j].numNeighborMines == 0) {
                     button.classList.remove("field_button")
                     button.classList.add("field_button_empty")
 
                 }
-                if (grid[i][j].neighborMines > 0) {
+                if (grid[i][j].numNeighborMines > 0) {
                     button.classList.remove("field_button")
                     // add picture to button
                     let img = document.createElement('img')
-                    img.src = "img/num_of_neighbors/open" + grid[i][j].neighborMines + ".png"
+                    img.src = "img/num_of_neighbors/open" + grid[i][j].numNeighborMines + ".png"
                     button.classList.add("field_button_img")
                     button.appendChild(img)
                 }
@@ -54,13 +58,15 @@ function displayGrid() {
     }
 }
 
+/**
+ * Hides or shows the game window
+ */
 function closeWindow() {
     playing = false
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
     difficulty = difficulty_presets.easy
 
-    // source: https://www.w3schools.com/jsref/prop_img_src.asp
     if (window.classList.contains("hidden")) {
         document.getElementById("start").src = "img/taskbar_left_inactive.png"
     } else {
@@ -69,6 +75,10 @@ function closeWindow() {
     }
 }
 
+/**
+ * Change the picture of similey face
+ * @param {string} img Path to image
+ */
 function smiley(img) {
     document.getElementById("smiley").src = img
 }

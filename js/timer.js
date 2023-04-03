@@ -3,21 +3,20 @@
 let running = false
 timer()
 
-let t100 = 0
-let t10 = 0
-let t1 = 0
+// t represents: hundreds, tens and ones
+let t = [0, 0, 0]
 
 function timer() {
     if (running) {
-        t1++
-        if (t1 == 10) {
-            t1 = 0
-            t10++
-            if (t10 == 10) {
-                t10 = 0
-                t100++
-                if (t100 == 10) {
-                    t100 = 0
+        t[2]++
+        if (t[2] == 10) {
+            t[2] = 0
+            t[1]++
+            if (t[1] == 10) {
+                t[1] = 0
+                t[0]++
+                if (t[0] == 10) {
+                    t[0] = 0
                 }
             }
         }
@@ -25,15 +24,11 @@ function timer() {
         let path = "img/digits/digit"
         let ext = ".png"
 
-        document.getElementById("timer100").src = path + t100 + ext
-        document.getElementById("timer10").src = path + t10 + ext
-        document.getElementById("timer1").src = path + t1 + ext
+        for (let i = 0; i < 3; i++) {
+            document.getElementById("timer" + i).src = path + t[i] + ext
+        }
     }
     setTimeout(timer, 1000)
-}
-
-function startTimer() {
-    running = true
 }
 
 function stopTimer() {
@@ -44,11 +39,9 @@ function resetTimer() {
     stopTimer()
     let path = "img/digits/digit0.png"
 
-    t100 = 0
-    t10 = 0
-    t1 = 0
+    t = [0, 0, 0]
 
-    document.getElementById("timer100").src = path
-    document.getElementById("timer10").src = path
-    document.getElementById("timer1").src = path
+    for (let i = 0; i < 3; i++) {
+        document.getElementById("timer" + i).src = path
+    }
 }

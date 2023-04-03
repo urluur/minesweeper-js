@@ -29,9 +29,9 @@
             <div id="game_panel">
                 <div id="game_menu">
                     <div id="flags_left">
-                        <img id="flags100" src="img/digits/digit0.png">
-                        <img id="flags10" src="img/digits/digit1.png">
-                        <img id="flags1" src="img/digits/digit0.png">
+                        <img id="flags0" src="img/digits/digit0.png">
+                        <img id="flags1" src="img/digits/digit1.png">
+                        <img id="flags2" src="img/digits/digit0.png">
                     </div>
                     <div id="face">
                         <button onclick="resetGame()">
@@ -39,9 +39,9 @@
                         </button>
                     </div>
                     <div id="timer">
-                        <img id="timer100" src="img/digits/digit0.png">
-                        <img id="timer10" src="img/digits/digit0.png">
+                        <img id="timer0" src="img/digits/digit0.png">
                         <img id="timer1" src="img/digits/digit0.png">
+                        <img id="timer2" src="img/digits/digit0.png">
                         <script src="js/timer.js"></script>
                     </div>
                 </div>
@@ -67,7 +67,9 @@
             <p style="font-size: small; cursor: normal">Each Minesweeper game starts out with a grid of unmarked squares.<br>After
                 clicking one of these squares, some of the squares will disappear, some will remain blank, and some
                 will have numbers on them.<br>It's your job to use the numbers to figure out which of the blank
-                squares have mines and which are safe to click.</p>
+                squares have mines and which are safe to click.<br>Squares with numbers tell you how many of its
+                neighbor squares are mines.
+            </p>
             <a href="https://github.com/urluur/minesweeper-js">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"
                     style="width: 20px; float:right; margin-top: -19;">
