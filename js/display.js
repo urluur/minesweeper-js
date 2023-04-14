@@ -82,3 +82,16 @@ function closeWindow() {
 function smiley(img) {
     document.getElementById("smiley").src = img
 }
+
+/**
+ * Updates the time in the bottom right corner
+ * Called once on page load
+ */
+function displayTime() {
+    const date = new Date()
+    let h = ("0" + date.getHours()).slice(-2)
+    let m = ("0" + date.getMinutes()).slice(-2)
+    time = (h + ":" + m)
+    document.getElementById("clock").innerHTML = time;
+    setTimeout(displayTime, 2000)
+}

@@ -244,6 +244,7 @@ footer>img,
     left: 110px;
     top: -10px;
     color: whitesmoke;
+    cursor: default;
 }
 
 footer>a>img {
