@@ -95,3 +95,45 @@ function displayTime() {
     document.getElementById("clock").innerHTML = time;
     setTimeout(displayTime, 2000)
 }
+
+/**
+ * Opens a dropdown for selecting difficulty
+ */
+function enableDropdown() {
+    let dropdown = document.getElementById("difficulty_dropdown")
+    dropdown.classList.toggle("show")
+    let buttons = dropdown.querySelectorAll("button")
+    for (const i in buttons) {
+        if (Object.hasOwnProperty.call(buttons, i)) {
+            const element = buttons[i];
+            if (element.innerHTML == "Intermediate" && window.innerWidth < 375 || element.innerHTML == "Expert" && window.innerWidth < 684) {
+                element.disabled = true
+            }
+            else {
+                element.disabled = false
+            }
+
+            if (element.innerHTML == difficulty.name) {
+                element.classList.add("checkmark")
+            } else {
+                element.classList.remove("checkmark")
+            }
+        }
+    }
+}
+
+/**
+ * Close the dropdown if the user clicks outside of it
+ * Source: https://www.w3schools.com/howto/howto_js_dropdown.asp
+ */
+window.onclick = function (event) {
+    if (!event.target.matches('.difficulty_button')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i]
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show')
+            }
+        }
+    }
+}

@@ -21,7 +21,13 @@
         </div>
 
         <div id="window_menu">
-            <button onclick="switchDifficulty()" style="cursor: pointer;"><u>G</u>ame</button>
+            <button onclick="enableDropdown()" style="cursor: pointer;" class="difficulty_button"><u>G</u>ame</button>
+            <div id="difficulty_dropdown" class="dropdown-content">
+                <button onclick="setDifficulty(difficulty_presets.easy)">Easy</button>
+                <button onclick="setDifficulty(difficulty_presets.intermediate)">Intermediate</button>
+                <button onclick="setDifficulty(difficulty_presets.expert)">Expert</button>
+            </div>
+
             <button onclick="toggleHelp()" style="cursor: help;"><u>H</u>elp</button>
         </div>
 
@@ -64,8 +70,8 @@
 
         <div id="instructions">
             <h3 style="margin-top: 1px; margin-bottom: 0px;">Instructions</h3>
-            <p style="font-size: small; cursor: normal">Each Minesweeper game starts out with a grid of unmarked squares.<br>After
-                clicking one of these squares, some of the squares will disappear, some will remain blank, and some
+            <p style="font-size: small; cursor: normal">Each Minesweeper game starts out with a grid of unmarked squares.<br>
+                After clicking one of these squares, some of the squares will disappear, some will remain blank, and some
                 will have numbers on them.<br>It's your job to use the numbers to figure out which of the blank
                 squares have mines and which are safe to click.<br>Squares with numbers tell you how many of its
                 neighbor squares are mines.

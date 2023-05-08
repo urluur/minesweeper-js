@@ -254,3 +254,57 @@ footer>a>img {
 .hidden {
     display: none;
 }
+
+.difficulty {
+    display: inline-block;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: white;
+    border: solid gray 1px;
+    box-shadow: 2px 2px 1px darkslategray;
+    position: absolute;
+    left: 0%;
+    top: 48.5px;
+    overflow: auto;
+    z-index: 2;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-content button {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    display: block;
+    min-width: 120px;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    margin: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+}
+
+.checkmark {
+    background-image: url(img/checked.png);
+    background-position-x: 2px;
+    background-position-y: center;
+    background-size: 7px;
+    background-repeat: no-repeat;
+}
+
+.dropdown-content button:hover {
+    background-color: rgb(46, 95, 224);
+    color: white;
+}

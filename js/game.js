@@ -2,17 +2,20 @@ let difficulty_presets = {
     easy: {
         rows: 9,
         cols: 9,
-        mines: 10
+        mines: 10,
+        name: "Easy"
     },
     intermediate: {
         rows: 16,
         cols: 16,
-        mines: 40
+        mines: 40,
+        name: "Intermediate"
     },
     expert: {
         rows: 16,
         cols: 30,
-        mines: 99
+        mines: 99,
+        name: "Expert"
     }
 }
 
@@ -25,8 +28,20 @@ let playing = true
  * @param {*} diff Must be one of presets (e.g. difficulty_presets.easy)
  */
 function setDifficulty(diff) {
-    difficulty = diff
-    resetGame()
+    switch (difficulty) {
+        case difficulty_presets.intermediate:
+            if (window.innerWidth < 375) {
+                return;
+            }
+            break;
+        case difficulty_presets.expert:
+            if (window.innerWidth < 684) {
+                return;
+            }
+            break;
+    }
+    difficulty = diff;
+    resetGame();
 }
 
 /**
@@ -34,27 +49,6 @@ function setDifficulty(diff) {
  */
 function toggleHelp() {
     document.getElementById("get_help").classList.toggle("hidden")
-}
-
-/**
- * Loops trough three possible difficulties
- */
-function switchDifficulty() {
-    switch (difficulty) {
-        case difficulty_presets.easy:
-            if (window.innerWidth >= 375) {
-                setDifficulty(difficulty_presets.intermediate)
-                break
-            }
-        case difficulty_presets.intermediate:
-            if (window.innerWidth >= 684) {
-                setDifficulty(difficulty_presets.expert)
-                break
-            }
-        default:
-            setDifficulty(difficulty_presets.easy)
-            break
-    }
 }
 
 class Square {
@@ -195,10 +189,7 @@ function checkLose(x, y) {
  * Checks the winning condition
  */
 function checkWin() {
-    if (!playing) {
-        return
-    }
-    if (noTilesLeft()) {
+    if (playing && noTilesLeft()) {
         document.getElementById("smiley").src = "img/win.png"
         for (let i = 0; i < difficulty.rows; i++) {
             for (let j = 0; j < difficulty.cols; j++) {
