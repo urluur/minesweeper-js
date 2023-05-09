@@ -44,6 +44,16 @@ body {
     padding: 10px;
 }
 
+ul {
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+li {
+    font-size: small;
+    cursor: normal;
+}
+
 #window_top,
 #help_top {
     background-image: url('img/taskbar_middle.png');
@@ -294,11 +304,12 @@ footer>a>img {
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 15px;
+    color: black;
 }
 
 .checkmark {
     background-image: url(img/checked.png);
-    background-position-x: 2px;
+    background-position-x: 3px;
     background-position-y: center;
     background-size: 7px;
     background-repeat: no-repeat;
