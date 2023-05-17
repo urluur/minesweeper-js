@@ -6,7 +6,7 @@ body {
 }
 
 #game_window {
-    border: solid blue 2px;
+    border: solid #0000ff 2px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     min-width: 200px;
@@ -304,7 +304,10 @@ footer>a>img {
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 15px;
-    color: black;
+}
+
+.dropdown-content button:enabled {
+    color:black;
 }
 
 .checkmark {
