@@ -21,6 +21,7 @@ let difficulty_presets = {
 
 let difficulty = difficulty_presets.easy;
 let playing = true
+let firstClick = true
 
 /**
  * Sets difficulty of the game.
@@ -153,6 +154,16 @@ function clickSquare(x, y) {
  * @param {int} y vertical position of the button
  */
 function clickButton(x, y) {
+    if (firstClick) {
+        while (grid[x][y].isMine) {
+            createGrid()
+            placeMines()
+        }
+        countNeighborMines()
+        updateFlagCounter()
+        displayGrid()
+        firstClick = false
+    }
     if (!grid[x][y].isFlagged) {
         running = true
         clickSquare(x, y)
@@ -277,6 +288,7 @@ function updateFlagCounter() {
  */
 function startGame() {
     playing = true
+    firstClick = true
     createGrid()
     placeMines()
     countNeighborMines()
