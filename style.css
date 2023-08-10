@@ -311,7 +311,7 @@ footer>a>img {
 }
 
 .checkmark {
-    background-image: url(img/checked.png);
+    background-image: url('img/checked.png');
     background-position-x: 3px;
     background-position-y: center;
     background-size: 7px;
