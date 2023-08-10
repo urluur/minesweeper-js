@@ -137,3 +137,20 @@ window.onclick = function (event) {
         }
     }
 }
+
+/**
+ * Changes to easier difficulty if the window is too small
+ * Called automatically when the window is resized
+ */
+window.onresize = function () {
+    if (window.innerWidth < difficulty.width) {
+        switch (difficulty.name) {
+            case "Intermediate":
+                difficulty = difficulty_presets.easy
+                break
+            case "Expert":
+                difficulty = difficulty_presets.intermediate
+        }
+        resetGame()
+    }
+}

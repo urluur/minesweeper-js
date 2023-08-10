@@ -3,19 +3,22 @@ let difficulty_presets = {
         rows: 9,
         cols: 9,
         mines: 10,
-        name: "Easy"
+        name: "Easy",
+        width: 220
     },
     intermediate: {
         rows: 16,
         cols: 16,
         mines: 40,
-        name: "Intermediate"
+        name: "Intermediate",
+        width: 375
     },
     expert: {
         rows: 16,
         cols: 30,
         mines: 99,
-        name: "Expert"
+        name: "Expert",
+        width: 684
     }
 }
 
