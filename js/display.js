@@ -17,7 +17,7 @@ function displayGrid() {
             let button = document.createElement('button')
 
             button.classList.add("field_button")
-            if (playing) {
+            if (playing || firstClick) {
                 button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
                 button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
                 button.setAttribute("onmousedown", 'smiley("img/wow.png")')
@@ -62,6 +62,7 @@ function displayGrid() {
  * Hides or shows the game window
  */
 function closeWindow() {
+    resetGame()
     playing = false
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
@@ -127,7 +128,7 @@ function enableDropdown() {
  * Source: https://www.w3schools.com/howto/howto_js_dropdown.asp
  */
 window.onclick = function (event) {
-    if (!event.target.matches('.difficulty_button')) {
+    if (!event.target.matches('#difficulty_button')) {
         let dropdowns = document.getElementsByClassName("dropdown-content");
         for (let i = 0; i < dropdowns.length; i++) {
             let openDropdown = dropdowns[i]
@@ -152,5 +153,19 @@ window.onresize = function () {
                 difficulty = difficulty_presets.intermediate
         }
         resetGame()
+    }
+}
+
+function toggleWindowVisibility() {
+    let window = document.getElementById("game_window")
+    window.classList.toggle("hidden")
+    if (window.classList.contains("hidden")) {
+        document.getElementById("start").src = "img/taskbar_left_inactive.png"
+        running = false
+    } else {
+        document.getElementById("start").src = "img/taskbar_left_active.png"
+        if (playing && !firstClick ) {
+            running = true
+        }
     }
 }

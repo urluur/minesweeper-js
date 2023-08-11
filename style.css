@@ -21,12 +21,6 @@ body {
     width: fit-content;
 }
 
-#window_menu>button {
-    padding-right: 1px;
-    color: black;
-    font-family: sans-serif;
-}
-
 #get_help {
     position: relative;
     border: solid blue 2px;
@@ -69,26 +63,41 @@ li {
     float: left;
 }
 
-#mine_title {
-    margin-top: 1px;
+.window_title {
+    margin: 1px;
 }
 
 #window_menu {
     background-color: rgb(233, 230, 211);
+    height: 20px;
 }
 
 #window_menu>button {
     border: none;
     background-color: transparent;
+    font-family: sans-serif;
+    float: left;
+    height: 20px;
+    padding-bottom: 1px;
+}
+
+#window_menu>button:hover {
+    background-color: rgb(46, 95, 224);
+    color: white;
+}
+
+.window_button {
+    float: right;
+    margin-top: -3px;
+    height: 25px;
 }
 
 #cross,
 #help_cross {
-    height: 25px;
-    margin-top: -3px;
     margin-right: -3px;
-    float: right;
 }
+
+
 
 #white_margin {
     border-top: solid white 4px;

@@ -14,14 +14,18 @@
 
         <div id="window_top">
             <img id="icon" src="favicon.ico">
-            <img onclick="closeWindow()" id="cross" src="img/window_close.jpg">
-            <div id="mine_title">
+
+            <img onclick="closeWindow()" id="cross" class="window_button" src="img/window_close.png">
+            <img class="window_button" src="img/window_maximize.png">
+            <img onclick="toggleWindowVisibility()" id="minimize" class="window_button" src="img/window_minimize.png">
+
+            <p class="window_title">
                 Minesweeper
-            </div>
+            </p>
         </div>
 
         <div id="window_menu">
-            <button onclick="enableDropdown()" style="cursor: pointer;" class="difficulty_button"><u>G</u>ame</button>
+            <button onclick="enableDropdown()" style="cursor: pointer;" id="difficulty_button"><u>G</u>ame</button>
             <div id="difficulty_dropdown" class="dropdown-content">
                 <button onclick="setDifficulty(difficulty_presets.easy)">Easy</button>
                 <button onclick="setDifficulty(difficulty_presets.intermediate)">Intermediate</button>
@@ -62,10 +66,10 @@
     <div id="get_help" class="hidden">
         <div id="help_top">
             <img id="icon" src="favicon.ico">
-            <img onclick="toggleHelp()" id="help_cross" src="img/window_close.jpg">
-            <div>
+            <img onclick="toggleHelp()" id="help_cross" class="window_button" src="img/window_close.png">
+            <p class="window_title">
                 Help
-            </div>
+            </p>
         </div>
 
         <div id="instructions">
@@ -94,9 +98,9 @@
         </div>
     </div>
     <footer>
-        <img id="start" onclick="closeWindow()" src="img/taskbar_left_active.png">
+        <img id="start" onclick="toggleWindowVisibility()" src="img/taskbar_left_active.png">
         <div id="taskbar_right">
-            <p id="clock">04:20</p>
+            <p id="clock"></p>
             <img src="img/taskbar_right.png">
         </div>
     </footer>
