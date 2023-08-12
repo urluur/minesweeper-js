@@ -25,6 +25,7 @@ let difficulty_presets = {
 let difficulty = difficulty_presets.easy;
 let playing = true
 let firstClick = true
+let unlucky = false
 
 /**
  * Sets difficulty of the game.
@@ -158,7 +159,7 @@ function clickSquare(x, y) {
  */
 function clickButton(x, y) {
     if (firstClick) {
-        while (grid[x][y].isMine) {
+        while (unlucky != grid[x][y].isMine) {
             createGrid()
             placeMines()
         }

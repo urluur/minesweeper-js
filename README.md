@@ -2,7 +2,7 @@
 
 This is a Windows XP Minesweeper clone written in JavaScript.
 
-Go to the [website](https://urluur.github.io/minesweeper-js/) and click on the Start menu to start playing.
+Go to the [website](https://urluur.github.io/minesweeper-js/) and start playing.
 
 ![screenshot](https://github.com/urluur/minesweeper-js/blob/main/img/screenshot.png?raw=true)
 

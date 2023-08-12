@@ -156,6 +156,10 @@ window.onresize = function () {
     }
 }
 
+/**
+ * Pauses the game and hides the game window
+ * Called when the user clicks the minimize button or taskbar icon
+ */
 function toggleWindowVisibility() {
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
