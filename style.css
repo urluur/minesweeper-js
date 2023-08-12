@@ -78,7 +78,9 @@ li {
     font-family: sans-serif;
     float: left;
     height: 20px;
-    padding-bottom: 1px;
+    padding-bottom: 0px;
+    color: black;
+    max-width: fit-content;
 }
 
 #window_menu>button:hover {
