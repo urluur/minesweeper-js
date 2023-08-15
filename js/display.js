@@ -7,7 +7,7 @@ function displayGrid() {
 
     // clear the table
     if (table.hasChildNodes) {
-        table.innerHTML = "";
+        table.innerHTML = ""
     }
 
     for (let i = 0; i < difficulty.rows; i++) {
@@ -17,7 +17,7 @@ function displayGrid() {
             let button = document.createElement('button')
 
             button.classList.add("field_button")
-            if (playing || firstClick) {
+            if (playing) {
                 button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
                 button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
                 button.setAttribute("onmousedown", 'smiley("img/wow.png")')
@@ -63,7 +63,7 @@ function displayGrid() {
  */
 function closeWindow() {
     resetGame()
-    playing = false
+    unlucky = false
     let window = document.getElementById("game_window")
     window.classList.toggle("hidden")
     difficulty = difficulty_presets.easy
@@ -93,7 +93,7 @@ function displayTime() {
     let h = ("0" + date.getHours()).slice(-2)
     let m = ("0" + date.getMinutes()).slice(-2)
     time = (h + ":" + m)
-    document.getElementById("clock").innerHTML = time;
+    document.getElementById("clock").innerHTML = time
     setTimeout(displayTime, 2000)
 }
 
@@ -106,7 +106,7 @@ function enableDropdown() {
     let buttons = dropdown.querySelectorAll("button")
     for (const i in buttons) {
         if (Object.hasOwnProperty.call(buttons, i)) {
-            const element = buttons[i];
+            const element = buttons[i]
             if (element.innerHTML == "Intermediate" && window.innerWidth < 375 || element.innerHTML == "Expert" && window.innerWidth < 684) {
                 element.disabled = true
             }
@@ -129,7 +129,7 @@ function enableDropdown() {
  */
 window.onclick = function (event) {
     if (!event.target.matches('#difficulty_button')) {
-        let dropdowns = document.getElementsByClassName("dropdown-content");
+        let dropdowns = document.getElementsByClassName("dropdown-content")
         for (let i = 0; i < dropdowns.length; i++) {
             let openDropdown = dropdowns[i]
             if (openDropdown.classList.contains('show')) {

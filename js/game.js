@@ -22,7 +22,7 @@ let difficulty_presets = {
     }
 }
 
-let difficulty = difficulty_presets.easy;
+let difficulty = difficulty_presets.easy
 let playing = true
 let firstClick = true
 let unlucky = false
@@ -36,17 +36,17 @@ function setDifficulty(diff) {
     switch (difficulty) {
         case difficulty_presets.intermediate:
             if (window.innerWidth < 375) {
-                return;
+                return
             }
-            break;
+            break
         case difficulty_presets.expert:
             if (window.innerWidth < 684) {
-                return;
+                return
             }
-            break;
+            break
     }
-    difficulty = diff;
-    resetGame();
+    difficulty = diff
+    resetGame()
 }
 
 /**
@@ -73,7 +73,7 @@ function createGrid() {
     for (let i = 0; i < difficulty.rows; i++) {
         grid[i] = []
         for (let j = 0; j < difficulty.cols; j++) {
-            grid[i][j] = new Square;
+            grid[i][j] = new Square
         }
     }
 }
@@ -131,8 +131,8 @@ function countNeighborMines() {
 function clickSquare(x, y) {
     let square = grid[x][y]
     if (!square.isClicked && !square.isFlagged) {
-        square.isFlagged = false;
-        square.isClicked = true;
+        square.isFlagged = false
+        square.isClicked = true
         if (square.numNeighborMines == 0) {
             for (let i_offset = -1; i_offset < 2; i_offset++) {
                 for (let j_offset = -1; j_offset < 2; j_offset++) {
@@ -256,7 +256,7 @@ function updateFlagCounter() {
     for (let i = 0; i < difficulty.rows; i++) {
         for (let j = 0; j < difficulty.cols; j++) {
             if (grid[i][j].isFlagged) {
-                mines_unflagged--;
+                mines_unflagged--
             }
         }
     }
