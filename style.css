@@ -318,7 +318,7 @@ footer>a>img {
 }
 
 .dropdown-content button:enabled {
-    color:black;
+    color: black;
 }
 
 .checkmark {
@@ -332,4 +332,9 @@ footer>a>img {
 .dropdown-content button:hover {
     background-color: rgb(46, 95, 224);
     color: white;
+}
+
+#unlucky {
+    color: blue;
+    cursor: pointer;
 }

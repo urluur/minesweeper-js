@@ -288,6 +288,14 @@ function updateFlagCounter() {
 }
 
 /**
+ * Makes the game impossible to win
+ */
+function feelingLucky() {
+    unlucky = true
+    toggleHelp()
+}
+
+/**
  * Starts the game
  */
 function startGame() {

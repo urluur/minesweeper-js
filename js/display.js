@@ -168,8 +168,10 @@ function toggleWindowVisibility() {
         running = false
     } else {
         document.getElementById("start").src = "img/taskbar_left_active.png"
-        if (playing && !firstClick ) {
+        if (playing && !firstClick) { // resumes the game if it was running before
             running = true
+        } else if (playing && firstClick) { // ensures the window is correctly displayed after it is reopened
+            resetGame()
         }
     }
 }
