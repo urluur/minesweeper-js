@@ -15,9 +15,11 @@
         <div id="window_top">
             <img id="icon" src="favicon.ico">
 
-            <img onclick="closeWindow()" id="cross" class="window_button" src="img/window_close.png">
-            <img class="window_button" src="img/window_maximize.png">
-            <img onclick="toggleWindowVisibility()" id="minimize" class="window_button" src="img/window_minimize.png">
+            <div id="actions">
+                <img onclick="closeWindow()" id="cross" class="window_button" src="img/window_close.png">
+                <img class="window_button" src="img/window_maximize.png">
+                <img onclick="toggleWindowVisibility()" id="minimize" class="window_button" src="img/window_minimize.png">
+            </div>
 
             <p class="window_title">
                 Minesweeper

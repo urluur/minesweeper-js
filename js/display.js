@@ -175,3 +175,43 @@ function toggleWindowVisibility() {
         }
     }
 }
+
+
+/**
+ * Source: https://www.w3schools.com/howto/howto_js_draggable.asp
+ * @param {*} elmnt 
+ */
+function dragElement(elmnt) {
+    var pos1, pos2, pos3, pos4
+    document.getElementById("window_top").onmousedown = dragMouseDown
+
+    function dragMouseDown(e) {
+        e.preventDefault()
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX
+        pos4 = e.clientY
+        document.onmouseup = closeDragElement
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag
+    }
+
+    function elementDrag(e) {
+        e.preventDefault()
+        
+        pos1 = pos3 - e.clientX
+        pos2 = pos4 - e.clientY
+        pos3 = e.clientX
+        pos4 = e.clientY
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px"
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px"
+    }
+
+    function closeDragElement() {
+        // stop moving when mouse button is released:
+        document.onmouseup = null
+        document.onmousemove = null
+    }
+}
+
+dragElement(document.getElementById("game_window"))
