@@ -197,14 +197,40 @@ function dragElement(elmnt) {
 
     function elementDrag(e) {
         e.preventDefault()
-        
+
         pos1 = pos3 - e.clientX
         pos2 = pos4 - e.clientY
         pos3 = e.clientX
         pos4 = e.clientY
-        // set the element's new position:
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px"
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px"
+
+        let top = (elmnt.offsetTop - pos2)
+        let left = (elmnt.offsetLeft - pos1)
+
+        let width = difficulty.width
+        switch (difficulty.name) {
+            case "Easy":
+                
+                if (top < 170) {
+                    top = 170
+                }
+                else if (top > window.innerHeight - 170) {
+                    top = window.innerHeight - 170
+                }
+                if (left < width/2) {
+                    elmnt.style.top = top
+                    return
+                }
+                else if (left > window.innerWidth - width/2) {
+                    left = window.innerWidth - width/2
+                }
+                break
+        }
+
+        elmnt.style.top = top
+        elmnt.style.left = left
+
+        console.log("top: " + top + " left: " + left);
+        
     }
 
     function closeDragElement() {
