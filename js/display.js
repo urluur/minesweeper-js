@@ -20,8 +20,9 @@ function displayGrid() {
             if (playing) {
                 button.setAttribute("onclick", "clickButton(" + i + ", " + j + ")")
                 button.setAttribute("oncontextmenu", "flagButton(" + i + ", " + j + "); return false;")
-                button.setAttribute("onmousedown", 'smiley("img/wow.png")')
-                button.setAttribute("onmouseup", 'smiley("img/ok.png")')
+                button.setAttribute("onmousedown", "smiley('img/wow.png'); if(event.button==2) sinkNeighbors(" + i + ", " + j + ", true)")
+                button.setAttribute("onmouseup", "smiley('img/ok.png'); sinkNeighbors(" + i + ", " + j + ", false)")
+                button.setAttribute("onmouseleave", "sinkNeighbors(" + i + ", " + j + ", false)")
             }
 
             if (grid[i][j].isFlagged) {
@@ -171,6 +172,21 @@ function toggleWindowVisibility() {
             running = true
         } else if (playing && firstClick) { // ensures the window is correctly displayed after it is reopened
             resetGame()
+        }
+    }
+}
+
+function sinkNeighbors(x, y, sink) {
+    if (!grid[x][y].isClicked) return;
+    for (let i_off = -1; i_off <= 1; i_off++) {
+        for (let j_off = -1; j_off <= 1; j_off++) {
+            let nx = x + i_off, ny = y + j_off;
+            if (nx >= 0 && nx < difficulty.rows && ny >= 0 && ny < difficulty.cols) {
+                let btn = document.getElementById('grid').rows[nx].cells[ny].firstChild;
+                if (btn && btn.classList.contains('field_button') && !grid[nx][ny].isFlagged) {
+                    btn.classList.toggle('field_button_sunken', sink);
+                }
+            }
         }
     }
 }

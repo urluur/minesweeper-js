@@ -186,7 +186,7 @@ li {
     background-color: rgb(192, 192, 192);
 }
 
-.field_button:active {
+.field_button:active, .field_button_sunken {
     border-top: solid rgb(117, 117, 117) 1px;
     border-left: solid rgb(117, 117, 117) 1px;
     border-bottom: solid transparent 3px;
